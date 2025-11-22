@@ -1,0 +1,73 @@
+services:
+  tiles:
+    image: ghcr.io/corviont/tiles:0.7@sha256:430cdbe82e67102afcdfae844eded999a5eb5a7beb3fb180a106b87a7522ff95
+    working_dir: /data/maps
+    command: [
+      "serve", ".",
+       "--public-url", "http://localhost:${CORVIONT_PORT}/tiles", 
+       "--port", "8080"]
+    volumes:
+      - "./data/tiles:/data/maps:ro"
+    expose:
+      - "8080"
+    healthcheck:
+      test: ["CMD-SHELL", "curl -fsS http://localhost:8080"]
+      start_period: 5s
+      start_interval: 1s
+      interval: 60s
+      timeout: 5s
+      retries: 3
+
+  router:
+    image: ghcr.io/valhalla/valhalla:latest@sha256:f87ae7c6b33538e8d0248ab398ed469e1f814b0eee35c5efdcdef3541cb10cbb
+    volumes:
+      - "./data/valhalla:/data/valhalla:ro"
+    command: [ "valhalla_service", "/data/valhalla/config.json", "2" ]
+    expose:
+      - "8002"
+    healthcheck:
+      test: ["CMD-SHELL", "curl -fsS http://localhost:8002/status"]
+      start_period: 5s
+      start_interval: 1s
+      interval: 60s
+      timeout: 5s
+      retries: 3
+
+  geocoder:
+    image: ghcr.io/corviont/geocoder:0.7@sha256:37e3beb13c4d69e54664d2237b8f52a0facc01f4f79db655bfc339df0175582d
+    volumes:
+      - "./data/geocoder/db.sqlite:/data/db.sqlite:ro"
+    environment:
+      - PORT=9090
+      - DB_PATH=/data/db.sqlite
+    expose:
+      - "9090"
+    healthcheck:
+      test: ["CMD-SHELL", "curl -fsS http://localhost:$$PORT/health"]
+      start_period: 5s
+      start_interval: 1s
+      interval: 60s
+      timeout: 5s
+      retries: 3
+
+  frontend:
+    image: ghcr.io/corviont/frontend:0.7@sha256:3cbe4c997c5a0c06b6164b57d3347870d3f5a39bbd74632927a107a07477bfdb
+    volumes:
+      - "./data/dataset.json:/usr/share/nginx/html/dataset.json:ro"
+      - "./data/map-style:/usr/share/nginx/html/map-style:ro"
+    ports:
+      - "${CORVIONT_PORT:?Environment variable CORVIONT_PORT is required}:8080"
+    depends_on:
+      tiles:
+        condition: service_healthy
+      router:
+        condition: service_healthy
+      geocoder:
+        condition: service_healthy
+    healthcheck:
+      test: ["CMD-SHELL", "curl -fsS http://localhost:8080/index.html"]
+      start_period: 5s
+      start_interval: 1s
+      interval: 60s
+      timeout: 5s
+      retries: 3

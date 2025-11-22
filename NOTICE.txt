@@ -1,0 +1,7 @@
+Corviont Maps — NOTICE
+
+This package includes data derived from OpenStreetMap (osm.org),
+© OpenStreetMap contributors, available under the ODbL 1.0 license.
+
+Full text of the ODbL 1.0 license and third-party notices:
+https://github.com/corviont/licensing/
