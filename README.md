@@ -1,6 +1,6 @@
 # Corviont Maps – Monaco Demo
 
-Run the Corviont Maps stack locally for a tiny region (Monaco). MapLibre UI, vector tiles, Valhalla routing, and a SQLite-based geocoder - all offline, all in one Docker stack.
+Run the [Corviont Maps](https://www.corviont.com) stack locally for a tiny region (Monaco). You’ll get a MapLibre UI, vector tiles, Valhalla routing, and a SQLite-based geocoder – all offline, all in one Docker stack.
 
 ## Prerequisites
 
@@ -69,5 +69,5 @@ All of these services run as containers on your machine; after the initial image
 
 If you’d like more information, or if you’re interested in using Corviont Maps in production:
 
-- Visit the website: **https://www.corviont.com/**
+- Visit the website: **https://www.corviont.com**
 - Or email: **hello@corviont.com**
