@@ -4,8 +4,6 @@ Run the [Corviont Maps](https://www.corviont.com) stack locally for a tiny regio
 
 **Docs & API examples:** https://www.corviont.com/docs - full setup, copy-paste examples & FAQ.
 
----
-
 ## Prerequisites
 
 - 64-bit OS (Linux/macOS/Windows)
@@ -25,8 +23,6 @@ getconf LONG_BIT
 docker version
 docker compose version
 ```
-
----
 
 ## Quickstart
 
@@ -52,8 +48,6 @@ docker compose down
 
 > Running on another machine? Replace `localhost` with the device IP/hostname.
 
----
-
 ## What you get
 
 Once the stack is up, it exposes a single HTTP entrypoint on `CORVIONT_PORT`:
@@ -65,8 +59,6 @@ Once the stack is up, it exposes a single HTTP entrypoint on `CORVIONT_PORT`:
 
 After the initial image pulls, the demo runs without any external map/routing APIs.
 
----
-
 ## Documentation
 
 The full docs include requirements, troubleshooting, and copy-paste examples for:
@@ -76,8 +68,6 @@ The full docs include requirements, troubleshooting, and copy-paste examples for
 - Search and reverse geocoding
 
 **Read the docs here:** https://www.corviont.com/docs
-
----
 
 ## More information
 
