@@ -1,69 +1,83 @@
 # Corviont Maps – Monaco Demo
 
-Run the [Corviont Maps](https://www.corviont.com) stack locally for a tiny region (Monaco). You’ll get a MapLibre UI, vector tiles, Valhalla routing, and a SQLite-based geocoder – all offline, all in one Docker stack.
+Run the [Corviont Maps](https://www.corviont.com) stack locally for a tiny region (Monaco). You’ll get a MapLibre UI, vector tiles, Valhalla routing, and a SQLite-based geocoder (search + reverse geocoding) - **fully offline**, in one Docker Compose stack.
+
+**Docs & API examples:** https://www.corviont.com/docs - full setup, copy-paste examples & FAQ.
+
+---
 
 ## Prerequisites
 
-You’ll need:
-
-- A 64-bit OS (Linux, macOS, or Windows)
+- 64-bit OS (Linux/macOS/Windows)
 - [Docker](https://docs.docker.com/get-docker/) installed
 - Docker Compose (included with recent Docker Desktop; if needed, see the [Compose install docs](https://docs.docker.com/compose/install/))
 
-To verify Docker is ready:
+Sanity check:
 
 ```bash
+# x86_64 or aarch64  => OK
+uname -m 
+
+# 64 => OK 
+getconf LONG_BIT
+
+# should output versions 
 docker version
 docker compose version
 ```
 
-## Quickstart
+---
 
-Clone the repo, start the stack, and open the UI:
+## Quickstart
 
 ```bash
 git clone https://github.com/corviont/monaco-demo.git
 cd monaco-demo
 
-# Set the port you want the frontend to listen on (3000 is just an example)
-export CORVIONT_PORT=3000
+# Choose the port
+echo "CORVIONT_PORT=3000" > .env
 
 docker compose up -d
-# Then open http://localhost:$CORVIONT_PORT in your browser
 ```
 
-To stop the stack:
+Open in your browser:
+
+- http://localhost:3000 (replace 3000 if you changed `CORVIONT_PORT`)
+
+Stop:
 
 ```bash
 docker compose down
 ```
---- 
 
-## What you get in this demo
+> Running on another machine? Replace `localhost` with the device IP/hostname.
 
-Once the stack is up, you have:
+---
 
-### Frontend (MapLibre UI)
+## What you get
 
-- URL: `http://localhost:$CORVIONT_PORT` (for example `http://localhost:3000` if you used the value above).
-- A minimal map UI that talks to the local tiles, routing, and search APIs in this stack.
+Once the stack is up, it exposes a single HTTP entrypoint on `CORVIONT_PORT`:
 
-### Tiles API (PMTiles server)
+- **UI ([MapLibre](https://github.com/maplibre/maplibre-gl-js)):** `/`
+- **Tiles ([go-pmtiles](https://github.com/protomaps/go-pmtiles)):** `/tiles/...` (served from a single PMTiles file)
+- **Routing gateway ([Valhalla](https://github.com/valhalla/valhalla)):** `/router/route` (other Valhalla endpoints may be present but are experimental)
+- **Geocoding:** `/geocoder/search` and `/geocoder/reverse`
 
-- Serves Monaco vector tiles from a single `.pmtiles` file.
-- Used by the MapLibre style in the UI; no external tile servers or map APIs are called.
+After the initial image pulls, the demo runs without any external map/routing APIs.
 
-### Routing API (Valhalla)
+---
 
-- Exposes an HTTP API for offline routing between arbitrary points in Monaco.
-- The UI uses it to compute routes; you can also call it directly from your own tools.
+## Documentation
 
-### Geocoder API (SQLite + Nominatim data)
+The full docs include requirements, troubleshooting, and copy-paste examples for:
 
-- Provides forward and reverse geocoding over HTTP.
-- Backed by a SQLite database derived from Nominatim-style data, so all search stays local.
+- Rendering a map (managed style and custom style)
+- Routing
+- Search and reverse geocoding
 
-All of these services run as containers on your machine; after the initial image pulls, the demo runs without external map or routing APIs.
+**Read the docs here:** https://www.corviont.com/docs
+
+---
 
 ## More information
 
