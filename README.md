@@ -2,6 +2,8 @@
 
 Run the [Corviont Maps](https://www.corviont.com) stack locally for a tiny region (Monaco). You’ll get a MapLibre UI, vector tiles, Valhalla routing, and a SQLite-based geocoder (search + reverse geocoding) - **fully offline**, in one Docker Compose stack.
 
+![Corviont Monaco demo: offline routing + map + search](gallery.jpg)
+
 **Docs & API examples:** https://www.corviont.com/docs - full setup, copy-paste examples & FAQ.
 
 ## Prerequisites
