@@ -8,9 +8,8 @@ Run the [Corviont Maps](https://www.corviont.com) stack locally for a tiny regio
 
 ## Prerequisites
 
-- 64-bit OS (Linux/macOS/Windows)
-- [Docker](https://docs.docker.com/get-docker/) installed
-- Docker Compose (included with recent Docker Desktop; if needed, see the [Compose install docs](https://docs.docker.com/compose/install/))
+- 64-bit OS (verified on Ubuntu and Raspberry Pi OS)
+- Docker [installed](https://docs.docker.com/engine/install/) and running, including Docker Compose
 
 Sanity check:
 
