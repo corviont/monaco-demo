@@ -4,7 +4,7 @@ services:
     working_dir: /data/maps
     command: [
       "serve", ".",
-       "--public-url", "http://localhost:${CORVIONT_PORT}/tiles", 
+       "--public-url", "tiles", 
        "--port", "8080"]
     volumes:
       - "./data/tiles:/data/maps:ro"
@@ -34,7 +34,7 @@ services:
       retries: 3
 
   geocoder:
-    image: ghcr.io/corviont/geocoder:0.7@sha256:37e3beb13c4d69e54664d2237b8f52a0facc01f4f79db655bfc339df0175582d
+    image: ghcr.io/corviont/geocoder:0.7@sha256:5a6c6964a76271dd7165240b2f943590468d6d9cefc4d6b39f329be0f6ab3284
     volumes:
       - "./data/geocoder/db.sqlite:/data/db.sqlite:ro"
     environment:
@@ -51,7 +51,7 @@ services:
       retries: 3
 
   frontend:
-    image: ghcr.io/corviont/frontend:0.7@sha256:3cbe4c997c5a0c06b6164b57d3347870d3f5a39bbd74632927a107a07477bfdb
+    image: ghcr.io/corviont/frontend:0.7@sha256:e0e54ee02230559775011954b596d91c12e802cdda8fffcee851b3fd4ddbec48
     volumes:
       - "./data/dataset.json:/usr/share/nginx/html/dataset.json:ro"
       - "./data/map-style:/usr/share/nginx/html/map-style:ro"

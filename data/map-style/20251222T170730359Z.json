@@ -3,7 +3,7 @@
   "sources": {
     "openmaptiles": {
       "type": "vector",
-      "url": "tiles/20251120T133150728Z.json"
+      "url": "tiles/20251222T170730359Z.json"
     }
   },
   "sprite": "map-style/sprite",
