@@ -51,7 +51,9 @@ services:
       retries: 3
 
   frontend:
-    image: ghcr.io/corviont/frontend:0.7@sha256:e0e54ee02230559775011954b596d91c12e802cdda8fffcee851b3fd4ddbec48
+    image: ghcr.io/corviont/frontend:0.7@sha256:1d32eaf5817bc89b326429289453c52136b057589d01d4361840f8967310a184
+    environment:
+    - CORVIONT_CORS_ALLOWED_ORIGINS=${CORVIONT_CORS_ALLOWED_ORIGINS:-}
     volumes:
       - "./data/dataset.json:/usr/share/nginx/html/dataset.json:ro"
       - "./data/map-style:/usr/share/nginx/html/map-style:ro"

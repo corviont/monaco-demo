@@ -33,6 +33,8 @@ cd monaco-demo
 
 # Choose the port
 echo "CORVIONT_PORT=3000" > .env
+# (Optional) Allow cross-origin browser apps (comma-separated; use "*" to allow all)
+echo "CORVIONT_CORS_ALLOWED_ORIGINS=http://localhost:3001" >> .env
 
 docker compose up -d
 ```
