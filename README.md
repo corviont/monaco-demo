@@ -4,7 +4,7 @@ Run the [Corviont Maps](https://www.corviont.com) stack locally for a tiny regio
 
 ![Corviont Monaco demo: offline routing + map + search](gallery.jpg)
 
-**Need Corviont beyond Monaco (your region + deployment)?** [Request Early Access](https://www.corviont.com/?utm_source=github&utm_campaign=wave1&utm_content=monaco_top#early-access).
+**Need Corviont beyond Monaco (your region + deployment)?** [Join Waitlist](https://www.corviont.com/?utm_source=github&utm_campaign=wave1&utm_content=monaco_top#join-waitlist) (share your region + deployment so we can prioritize the roadmap).
 
 Docs & copy-paste examples: https://www.corviont.com/docs
 
@@ -74,6 +74,6 @@ The full docs include requirements, troubleshooting, and copy-paste examples for
 
 **Read the docs here:** https://www.corviont.com/docs
 
-## Request Early Access (regions + deployment)
+## Join Waitlist
 
-Monaco is the public demo region. If you want Corviont for a different region or deployment target (Portainer/Mender/etc.), [Request Early Access](https://www.corviont.com/?utm_source=github&utm_campaign=wave1&utm_content=monaco_bottom#early-access) or email hello@corviont.com.
+Monaco is the public demo region. If you want Corviont for a different region or deployment (Portainer/Mender/etc.), [Join Waitlist](https://www.corviont.com/?utm_source=github&utm_campaign=wave1&utm_content=monaco_bottom#join-waitlist) or email hello@corviont.com.
