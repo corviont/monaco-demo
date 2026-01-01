@@ -51,7 +51,7 @@ services:
       retries: 3
 
   frontend:
-    image: ghcr.io/corviont/frontend:0.7@sha256:2fab510cd7b43edb364eb63ba7ecf2bf68736a16ace066cabcae31609b40c946
+    image: ghcr.io/corviont/frontend:0.7@sha256:06a110e9195684fed65ff44b050d33942396484c878fa919beeb0107a237af4c
     environment:
     - CORVIONT_CORS_ALLOWED_ORIGINS=${CORVIONT_CORS_ALLOWED_ORIGINS:-}
     - CORVIONT_DEMO_MODE=${CORVIONT_DEMO_MODE:-0}
