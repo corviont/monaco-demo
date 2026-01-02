@@ -2,11 +2,11 @@
 
 Run the [Corviont Maps](https://www.corviont.com) stack locally for a tiny region (Monaco). You’ll get a MapLibre UI, vector tiles, Valhalla routing, and a SQLite-based geocoder (search + reverse geocoding) - **fully offline**, in one Docker Compose stack.
 
-**Try the [hosted Monaco demo](https://demo.corviont.com/?utm_source=github&utm_medium=readme&utm_campaign=monaco_demo&utm_content=try_live_demo) (no install).** 
+**Try the [hosted Monaco demo](https://demo.corviont.com/?utm_source=github_demo_top) (no install).** 
 
 ![Corviont Monaco demo: offline routing + map + search](gallery.jpg) 
 
-**Need Corviont beyond Monaco (your region + deployment)?** [Join Waitlist](https://www.corviont.com/?utm_source=github&utm_campaign=monaco_demo&utm_content=monaco_top#join-waitlist) (share your region + deployment so we can prioritize the roadmap).
+**Need Corviont beyond Monaco?** [Request your region](https://www.corviont.com/?utm_source=github_demo_top#request-region) (takes 20 seconds).
 
 Docs & copy-paste examples: https://www.corviont.com/docs
 
@@ -72,6 +72,6 @@ The full docs include requirements, troubleshooting, and copy-paste examples for
 
 **Read the docs here:** https://www.corviont.com/docs
 
-## Join Waitlist
+## Request your region
 
-Monaco is the public demo region. If you want Corviont for a different region or deployment (Portainer/Mender/etc.), [Join Waitlist](https://www.corviont.com/?utm_source=github&utm_medium=readme&utm_campaign=monaco_demo&utm_content=join_waitlist_bottom#join-waitlist) or email hello@corviont.com.
+Monaco is the public demo region. If you need a different region, [request it here](https://www.corviont.com/?utm_source=github_demo_bottom#request-region) or email hello@corviont.com.
