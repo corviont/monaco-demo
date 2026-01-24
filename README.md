@@ -6,9 +6,11 @@ Run the [Corviont Maps](https://www.corviont.com) stack locally for a tiny regio
 
 ![Corviont Monaco demo: offline routing + map + search](gallery.jpg) 
 
-**Need Corviont beyond Monaco?** [Request your region](https://www.corviont.com/?utm_source=github_demo_top#request-region) (takes 20 seconds).
+## Need Corviont beyond Monaco?
 
-Docs & copy-paste examples: https://www.corviont.com/docs
+- **Request your region** (takes 20 seconds): https://www.corviont.com/?utm_source=github_demo_top#request-region
+- **Benchmarks** (many regions: download/on-disk/RAM + endpoint performance): https://www.corviont.com/blog/hardware-footprint-benchmarks-methodology-and-full-results
+- **Docs & copy-paste examples:** https://www.corviont.com/docs
 
 ## Prerequisites
 
