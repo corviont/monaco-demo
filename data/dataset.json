@@ -1,4 +1,6 @@
 {
-  "version": "20260102T130354084Z",
-  "pbf": "https://download.geofabrik.de/europe/monaco-latest.osm.pbf"
+  "version": "20260219T121829028Z",
+  "pbf": "https://download.geofabrik.de/europe/monaco-latest.osm.pbf",
+  "bbox": {"min_lon":7.408583,"min_lat":43.483817,"max_lon":7.595671,"max_lat":43.75293},
+  "ui_center": {"lon":7.42,"lat":43.732}
 }

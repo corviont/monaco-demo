@@ -1,13 +1,13 @@
 services:
   tiles:
-    image: ghcr.io/corviont/tiles:0.7@sha256:430cdbe82e67102afcdfae844eded999a5eb5a7beb3fb180a106b87a7522ff95
+    image: ghcr.io/corviont/tiles:0.7@sha256:9e382e90793edba0c01fbea63812714b109336b3b0ac252b2a20b3e199af7917
     working_dir: /data/maps
     command: [
       "serve", ".",
        "--public-url", "tiles", 
        "--port", "8080"]
     volumes:
-      - "./data/tiles:/data/maps:ro"
+      - "${CORVIONT_DATA_DIR:-./data}/tiles:/data/maps:ro"
     expose:
       - "8080"
     healthcheck:
@@ -21,7 +21,7 @@ services:
   router:
     image: ghcr.io/valhalla/valhalla:latest@sha256:f87ae7c6b33538e8d0248ab398ed469e1f814b0eee35c5efdcdef3541cb10cbb
     volumes:
-      - "./data/valhalla:/data/valhalla:ro"
+      - "${CORVIONT_DATA_DIR:-./data}/valhalla:/data/valhalla:ro"
     command: [ "valhalla_service", "/data/valhalla/config.json", "2" ]
     expose:
       - "8002"
@@ -34,9 +34,9 @@ services:
       retries: 3
 
   geocoder:
-    image: ghcr.io/corviont/geocoder:0.7@sha256:5a6c6964a76271dd7165240b2f943590468d6d9cefc4d6b39f329be0f6ab3284
+    image: ghcr.io/corviont/geocoder:0.7@sha256:cadd4dcc9c4e4112cd5f3c2ea3902131294970ca278cafd3cd9e7dbdad88363f
     volumes:
-      - "./data/geocoder/db.sqlite:/data/db.sqlite:ro"
+      - "${CORVIONT_DATA_DIR:-./data}/geocoder/db.sqlite:/data/db.sqlite:ro"
     environment:
       - PORT=9090
       - DB_PATH=/data/db.sqlite
@@ -51,13 +51,12 @@ services:
       retries: 3
 
   frontend:
-    image: ghcr.io/corviont/frontend:0.7@sha256:3b2bd5929af31205156e69dbb13a6790e53ac18c8fb7fdcb020b8e3cbc7b4ea3
+    image: ghcr.io/corviont/frontend:0.7@sha256:7d7f7f2af72451fc02f3485a399bd7266777ba940ea5c7b282f1fc4f412b507e
     environment:
     - CORVIONT_CORS_ALLOWED_ORIGINS=${CORVIONT_CORS_ALLOWED_ORIGINS:-}
-    - CORVIONT_DEMO_MODE=${CORVIONT_DEMO_MODE:-0}
     volumes:
-      - "./data/dataset.json:/usr/share/nginx/html/dataset.json:ro"
-      - "./data/map-style:/usr/share/nginx/html/map-style:ro"
+      - "${CORVIONT_DATA_DIR:-./data}/dataset.json:/usr/share/nginx/html/dataset.json:ro"
+      - "${CORVIONT_DATA_DIR:-./data}/map-style:/usr/share/nginx/html/map-style:ro"
     ports:
       - "${CORVIONT_PORT:?Environment variable CORVIONT_PORT is required}:8080"
     depends_on:

@@ -1,16 +1,15 @@
-# Corviont Maps – Monaco Demo 
+# Corviont Maps - Offline Pack (Monaco Sample)
 
-Run the [Corviont Maps](https://www.corviont.com) stack locally for a tiny region (Monaco). You’ll get a MapLibre UI, vector tiles, Valhalla routing, and a SQLite-based geocoder (search + reverse geocoding) - **fully offline**, in one Docker Compose stack.
+This repo is a small, public **sample pack** for [Corviont Maps](https://www.corviont.com): MapLibre UI, vector tiles, Valhalla routing, and SQLite-based geocoding (search + reverse) - **fully offline**, in one Docker Compose stack.
 
-**Try the [hosted Monaco demo](https://demo.corviont.com/?utm_source=github_demo_top) (no install).** 
+**No install:** try the [live demo](https://demo.corviont.com/?utm_source=github_demo_top) (Vienna).
 
 ![Corviont Monaco demo: offline routing + map + search](gallery.jpg) 
 
-## Need Corviont beyond Monaco?
+## Need a pack for your hardware / region?
 
-- **Request your region** (takes 20 seconds): https://www.corviont.com/?utm_source=github_demo_top#request-region
-- **Benchmarks** (many regions: download/on-disk/RAM + endpoint performance): https://www.corviont.com/blog/hardware-footprint-benchmarks-methodology-and-full-results
-- **Docs & copy-paste examples:** https://www.corviont.com/docs
+- **Request a pilot** (we'll email a Vienna starter pack so you can test on your hardware): https://www.corviont.com/?utm_source=github_demo_top#request-region
+- **Benchmarks:** https://www.corviont.com/blog/hardware-footprint-benchmarks-methodology-and-full-results
 
 ## Prerequisites
 
@@ -38,7 +37,8 @@ cd monaco-demo
 
 # Choose the port
 echo "CORVIONT_PORT=3000" > .env
-# (Optional) Allow cross-origin browser apps (comma-separated; use "*" to allow all)
+
+# Optional: allow browser apps from another origin (comma-separated; use "*" to allow all)
 echo "CORVIONT_CORS_ALLOWED_ORIGINS=http://localhost:3001" >> .env
 
 docker compose up -d
@@ -60,20 +60,15 @@ Once the stack is up, it exposes a single HTTP entrypoint on `CORVIONT_PORT`:
 
 - **UI ([MapLibre](https://github.com/maplibre/maplibre-gl-js)):** `/`
 - **Tiles ([go-pmtiles](https://github.com/protomaps/go-pmtiles)):** `/tiles/...` (served from a single PMTiles file)
-- **Routing gateway ([Valhalla](https://github.com/valhalla/valhalla)):** `/router/route` (other Valhalla endpoints may be present but are experimental)
+- **Routing ([Valhalla](https://github.com/valhalla/valhalla)):** `/router/route` (other Valhalla endpoints may exist but are experimental)
 - **Geocoding:** `/geocoder/search` and `/geocoder/reverse`
 
 After the initial image pulls, the demo runs without any external map/routing APIs.
 
-## Documentation
+## Docs
+Install + troubleshooting + API + copy-paste examples:
+https://www.corviont.com/docs
 
-The full docs include requirements, troubleshooting, and copy-paste examples for:
-- Rendering a map (managed style and custom style)
-- Routing
-- Search and reverse geocoding
+## Request a pilot
 
-**Read the docs here:** https://www.corviont.com/docs
-
-## Request your region
-
-Monaco is the public demo region. If you need a different region, [request it here](https://www.corviont.com/?utm_source=github_demo_bottom#request-region) or email hello@corviont.com.
+Monaco is a tiny public sample pack. To evaluate Corviont on your hardware, [request a pilot](https://www.corviont.com/?utm_source=github_demo_bottom#request-region) or email hello@corviont.com.
